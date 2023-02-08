@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %} {% block title %}User Favourites{% endblock %} 
+{% block content %} {% for post in posts %}
+<div class="container">
+
+    <div class="row justify-content-md-center pt-5">
+
+        <div class="col-md-8">
+            <div class="card-header"><strong>@{{ post.author.username }}</strong></div>
+            <div class="col-12"><h1>{{post.title}}</h1></div>
+            <div class="col-12"><p>{{post.description|safe}}</p></div>
+            {% if post.post_image %}
+            <img src="{{post.post_image.url}}" width=200>
+            {% endif %}
+            <div id="favourite-section"><a href="{% url 'favourite_add' post.id %}"
+                class="btn btn-outline-primary">Remove</a></div>
+        </div>
+
+    </div>
+
+</div>
+{% empty %}
+<p>No favourite posts</p>
+{% endfor %} {% endblock %}

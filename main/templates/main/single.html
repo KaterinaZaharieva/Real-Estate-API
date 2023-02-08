@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %} {% block title %}{{post.title}}{% endblock %}
+{% block content %}
+<div class="container">
+
+    <div class="row justify-content-md-center pt-5">
+
+        <div class="col-md-8">
+            <div class="card-header"><strong>@{{ post.author.username }}</strong></div>
+            <div class="col-12"><h1>{{post.title}}</h1></div>
+            {% if fav%}
+            <div>
+            <a href="{% url 'favourite_list' %}"
+                class="btn btn-outline-primary">Remove</a>
+            </div>
+            {% else %}
+            <div>
+            <a href="{% url 'favourite_add' post.id %}" class="btn btn-outline-primary"> Add to Favourites</a>
+            </div>
+            {% endif %}
+            <div class="col-12"><p>{{post.description|safe}}</p></div>
+            {% if post.post_image %}
+            <img src="{{post.post_image.url}}" width=200>
+            {% endif %}
+            <div>
+                <form method="post">
+                    {% csrf_token %}
+                    <label> Rate </label>
+                    <br>
+                    <div class="rate">
+                        <input type="radio" name="rating" id="rating1" value="5" required/>
+                        <input type="radio" name="rating" id="rating2" value="4" required/>
+                        <input type="radio" name="rating" id="rating3" value="3" required/>
+                        <input type="radio" name="rating" id="rating4" value="2" required/>
+                        <input type="radio" name="rating" id="rating5" value="1" required/>
+                    <br>
+                    <input type="submit" value="Submit review"class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
