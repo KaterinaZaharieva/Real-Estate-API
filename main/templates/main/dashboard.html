@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %} {% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="container">
+    {% if userprofile.is_agent %}
+    {% for post in posts%}
+    <h2 class="subtitle"> Posts </h2>
+    <div class="posts">
+        <a href="{% url 'post_single' post.id %}" class="btn btn-outline-primary">  {{ post.title}}</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    {% for inspection in request.user.inspection.all %}
+    <h2 class="subtitle"> Inspections </h2>
+    <div class="inspection">
+        <a href="{% url 'view_inspection' inspection.id %}" class="btn btn-outline-primary">  {{ inspection.post.title}}</a>
+    </div>
+    {% empty %}
+        <p> You haven't asked for any inspections yet </p>
+    {%endfor%}
+    {%endif%}
+</div>
+{% endblock %}

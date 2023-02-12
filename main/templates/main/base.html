@@ -26,6 +26,12 @@
             <li class="nav-item">
               <a class="nav-link" href="/favourites">Favourites</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'notifications' %}" class="navbar-item">Notifications ({{ notification.count }})</a>
+            </li>
           </ul>
         </div>
         <div>

@@ -9,3 +9,4 @@ class AuthorAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Post, AuthorAdmin)
 admin.site.register(models.ReviewRating)
+admin.site.register(models.Notification)

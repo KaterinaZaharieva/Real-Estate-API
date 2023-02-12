@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h1 class="title">View application</h1>
+
+<h2 class="subtitle">{{ inspection.post.title }}</h2>
+
+<small>Date added: {{ inspection.created_at }}</small>
+
+<p><strong>Content: </strong><br>{{ inspection.date }}</p>
+<p><strong>Experience: </strong><br>{{ inspection.contact_info }}</p>
+{% endblock %}

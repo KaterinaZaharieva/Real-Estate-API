@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'notifications',
 ]
 
 
@@ -142,3 +143,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 STATIC_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
